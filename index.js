@@ -1,4 +1,4 @@
-import cookieParser from "cookie-parser";
+//import cookieParser from "cookie-parser";
 import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
@@ -6,6 +6,10 @@ import morgan from "morgan";
 import { errorHandler, routeNotFound } from "./middlewares/errorMiddlewaves.js";
 import routes from "./routes/index.js";
 import { dbConnection } from "./utils/index.js";
+
+import { createServer } from "http";
+import { Server } from "socket.io";
+
 
 dotenv.config();
 
@@ -26,7 +30,7 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(cookieParser());
+//app.use(cookieParser());
 
 app.use(morgan("dev"));
 app.use("/api", routes);
@@ -41,3 +45,4 @@ app.use((err, req, res, next) => {
 
 
 app.listen(PORT, () => console.log(`Server listening on ${PORT}`));
+
