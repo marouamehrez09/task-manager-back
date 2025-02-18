@@ -8,7 +8,6 @@ import routes from "./routes/index.js";
 import { dbConnection } from "./utils/index.js";
 
 import { createServer } from "http";
-import { Server } from "socket.io";
 
 
 dotenv.config();
